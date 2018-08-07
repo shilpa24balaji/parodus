@@ -77,10 +77,11 @@ void createSocketConnection(void *config_in, void (* initKeypress)())
     nopoll_log_set_handler (ctx, __report_log, NULL);
     #endif
 
+    createNopollConnection(ctx);
+
     ParodusInfo("Sleeping for 30mins to mock connection stuck issue\n"); 
     sleep(1800);
 
-    createNopollConnection(ctx);
     packMetaData();
     
     UpStreamMsgQ = NULL;
